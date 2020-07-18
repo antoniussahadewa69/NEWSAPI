@@ -59,7 +59,7 @@ public class WebviewNewsActivity extends AppCompatActivity {
         urlToImage = getIntent().getStringExtra("urltoimage");
         url = getIntent().getStringExtra("url");
         SourcesId = getIntent().getStringExtra("sourceId");
-        SourcesName = getIntent().getStringExtra("sourceId");
+        SourcesName = getIntent().getStringExtra("sourceName");
         content = getIntent().getStringExtra("content");
         publishedAt = getIntent().getStringExtra("publishedAt");
         getSupportActionBar().setTitle(SourcesName+" News");

@@ -43,6 +43,7 @@ public class WebviewNewsActivity extends AppCompatActivity {
     String urlToImage = "";
     String content = "";
     String publishedAt = "";
+    int Mark = 0;
     Realm mRealm;
 
     @Override
@@ -62,6 +63,7 @@ public class WebviewNewsActivity extends AppCompatActivity {
         SourcesName = getIntent().getStringExtra("sourceName");
         content = getIntent().getStringExtra("content");
         publishedAt = getIntent().getStringExtra("publishedAt");
+        //Mark = getIntent().getIntExtra("isMark",0);
         getSupportActionBar().setTitle(SourcesName+" News");
         refreshLayout.setRefreshing(true);
         refreshLayout.setColorSchemeResources(
@@ -102,32 +104,35 @@ public class WebviewNewsActivity extends AppCompatActivity {
         fabSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final NewsRealm newsRealm = new NewsRealm();
-                final NewsRealm lastId = mRealm.where(NewsRealm.class).findAllSorted("id", Sort.DESCENDING).where().findFirst();
-                newsRealm.setId(lastId != null ? lastId.getId() + 1 : 1);
-                newsRealm.setTitle(title);
-                newsRealm.setAuthor(author);
-                newsRealm.setDescription(description);
-                newsRealm.setContent(content);
-                newsRealm.setPublishedAt(publishedAt);
-                newsRealm.setUrl(url);
-                newsRealm.setUrlToImage(urlToImage);
+                if (Mark != 1){
+                    final NewsRealm newsRealm = new NewsRealm();
+                    final NewsRealm lastId = mRealm.where(NewsRealm.class).findAllSorted("id", Sort.DESCENDING).where().findFirst();
+                    newsRealm.setId(lastId != null ? lastId.getId() + 1 : 1);
+                    newsRealm.setTitle(title);
+                    newsRealm.setAuthor(author);
+                    newsRealm.setDescription(description);
+                    newsRealm.setContent(content);
+                    newsRealm.setPublishedAt(publishedAt);
+                    newsRealm.setUrl(url);
+                    newsRealm.setUrlToImage(urlToImage);
                     SourceRealm sourceRealm = new SourceRealm();
                     sourceRealm.setId(SourcesId);
                     sourceRealm.setName(SourcesName);
-                newsRealm.setSourceRealm(sourceRealm);
-                mRealm.executeTransaction(new Realm.Transaction() {
-                    @Override
-                    public void execute(Realm realm) {
-                        if(realm.where(NewsRealm.class).equalTo("title", title).findFirst() == null){
-                            realm.copyToRealmOrUpdate(newsRealm);
-                            Toast.makeText(WebviewNewsActivity.this,"Save to Mark Succces", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(WebviewNewsActivity.this,"News already exist", Toast.LENGTH_SHORT).show();
+                    newsRealm.setSourceRealm(sourceRealm);
+                    mRealm.executeTransaction(new Realm.Transaction() {
+                        @Override
+                        public void execute(Realm realm) {
+                            if(realm.where(NewsRealm.class).equalTo("title", title).findFirst() == null){
+                                realm.copyToRealmOrUpdate(newsRealm);
+                                Toast.makeText(WebviewNewsActivity.this,"Save to Mark Succces", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(WebviewNewsActivity.this,"News already exist", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
-
+                    });
+                }else {
+                    Toast.makeText(WebviewNewsActivity.this,"Don't mark again this News", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         fab.setOnClickListener(new View.OnClickListener() {

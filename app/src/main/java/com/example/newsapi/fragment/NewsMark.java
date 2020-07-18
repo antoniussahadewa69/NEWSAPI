@@ -87,15 +87,24 @@ public class NewsMark extends Fragment {
                 NewsRealm news = newsRealms.get(position);
                 Intent title_Intent = new Intent(mContext, WebviewNewsActivity.class);
                 title_Intent.putExtra("isMark", 1);
+                title_Intent.putExtra("url", news.getUrl());
+                title_Intent.putExtra("sourceId",news.getSourceRealm().getId());
+                title_Intent.putExtra("sourceName",news.getSourceRealm().getName());
+                title_Intent.putExtra("author",news.getAuthor());
+                title_Intent.putExtra("title",news.getTitle());
+                title_Intent.putExtra("description",news.getDescription());
+                title_Intent.putExtra("urltoimage",news.getUrlToImage());
+                title_Intent.putExtra("content",news.getContent());
+                title_Intent.putExtra("publishedAt",news.getPublishedAt());
                 startActivity(title_Intent);
             }
 
             @Override
             public void onLongClick(View view, final int position) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
-                alertDialogBuilder.setTitle("Exit Application?");
+                alertDialogBuilder.setTitle("Delete Confirmation?");
                 alertDialogBuilder
-                        .setMessage("Click yes to exit!")
+                        .setMessage("Do you sure delete this news?")
                         .setCancelable(false)
                         .setPositiveButton("Cancel",
                                 new DialogInterface.OnClickListener() {

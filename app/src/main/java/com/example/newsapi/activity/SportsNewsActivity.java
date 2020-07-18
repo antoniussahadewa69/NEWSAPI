@@ -70,7 +70,7 @@ public class SportsNewsActivity extends AppCompatActivity {
         rvTech.addOnItemTouchListener(new RecyclerItemListener(SportsNewsActivity.this, rvTech, new RecyclerItemListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                News news = results.get(position);
+                News news = adapter.getItem(position);
                 Intent title_Intent = new Intent(SportsNewsActivity.this, WebviewNewsActivity.class);
                 title_Intent.putExtra("url", news.getUrl());
                 title_Intent.putExtra("sourceId",news.getSource().getId());

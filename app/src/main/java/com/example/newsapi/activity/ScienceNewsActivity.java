@@ -71,7 +71,7 @@ public class ScienceNewsActivity extends AppCompatActivity {
         rvTech.addOnItemTouchListener(new RecyclerItemListener(ScienceNewsActivity.this, rvTech, new RecyclerItemListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                News news = results.get(position);
+                News news = adapter.getItem(position);
                 Intent title_Intent = new Intent(ScienceNewsActivity.this, WebviewNewsActivity.class);
                 title_Intent.putExtra("url", news.getUrl());
                 title_Intent.putExtra("sourceId",news.getSource().getId());

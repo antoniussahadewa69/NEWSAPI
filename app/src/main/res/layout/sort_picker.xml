@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/text1"
+            android:text="SORT BY :"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="10dp"
+            android:textSize="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="199dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="25dp"
+                android:text="- PUBLISHED TIME"
+                android:textColor="@android:color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="25dp"
+                android:text="- RELEVANCY"
+                android:textColor="@android:color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="5dp"
+                android:text="- POPULARITY"
+                android:textColor="@android:color/black"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <CheckBox
+                android:id="@+id/cbpublishedAt"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="publishedAt"
+                android:textColor="#00ffffff" />
+
+            <CheckBox
+                android:id="@+id/cbrelevancy"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="relevancy"
+                android:textColor="#00ffffff" />
+
+            <CheckBox
+                android:id="@+id/cbpopularity"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="popularity"
+                android:textColor="#00ffffff" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSortCancel"
+            android:layout_marginRight="20dp"
+            android:text="CANCEL"
+            android:textColor="#FFFFFF"
+            android:background="@color/colorPrimary"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSortOK"
+            android:layout_marginLeft="20dp"
+            android:text="OK"
+            android:textColor="#FFFFFF"
+            android:background="@color/colorPrimary"/>
+    </LinearLayout>
+</LinearLayout>

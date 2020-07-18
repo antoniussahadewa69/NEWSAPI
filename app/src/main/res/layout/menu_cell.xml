@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/statuskirimpm"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="#ffff">
+
+    <LinearLayout
+        android:id="@+id/llPm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:padding="5dp"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="5"
+                android:background="@color/cardview_light_background"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:id="@+id/ivMenu"
+                    android:src="@mipmap/ic_technology"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="4"
+                    android:textSize="38dp"
+                    android:text="Technology"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:id="@+id/textMenuCell"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+</FrameLayout>

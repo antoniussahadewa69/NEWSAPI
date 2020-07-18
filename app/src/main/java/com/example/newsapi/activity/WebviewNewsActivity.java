@@ -63,7 +63,7 @@ public class WebviewNewsActivity extends AppCompatActivity {
         SourcesName = getIntent().getStringExtra("sourceName");
         content = getIntent().getStringExtra("content");
         publishedAt = getIntent().getStringExtra("publishedAt");
-        //Mark = getIntent().getIntExtra("isMark",0);
+        Mark = getIntent().getIntExtra("isMark",0);
         getSupportActionBar().setTitle(SourcesName+" News");
         refreshLayout.setRefreshing(true);
         refreshLayout.setColorSchemeResources(
